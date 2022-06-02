@@ -16,21 +16,38 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.W)){
-            transform.Translate(speed , 0 , 0);
+            transform.Translate(speed * Time.deltaTime , 0 , 0);
         }
 
         if (Input.GetKey(KeyCode.S)){
-            transform.Translate(-speed , 0 , 0);
+            transform.Translate(-speed * Time.deltaTime , 0 , 0);
         }
 
         if (Input.GetKey(KeyCode.D))
        {
-        transform.eulerAngles += new Vector3(0 , rotationSpeed , 0);
+        transform.eulerAngles += new Vector3(0 , rotationSpeed * Time.deltaTime , 0);
        }
         
         if (Input.GetKey(KeyCode.A))
        {
-        transform.eulerAngles -= new Vector3(0 , rotationSpeed , 0);
+        transform.eulerAngles -= new Vector3(0 , rotationSpeed * Time.deltaTime , 0);
+       }
+
+       if (Input.GetKeyDown(KeyCode.LeftShift))
+       {
+            rotationSpeed += 20;
+            speed -= 20f;
+       }
+
+       if (Input.GetKeyUp(KeyCode.LeftShift))
+       {
+           rotationSpeed -= 20;
+           speed += 20;
+       }
+       
+       if (transform.position.y <= -1) 
+       {
+           transform.position = new Vector3(-19 , 2 , 33);
        }
     }
 }
