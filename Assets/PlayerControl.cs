@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -49,5 +50,19 @@ public class PlayerControl : MonoBehaviour
        {
            transform.position = new Vector3(-19 , 2 , 33);
        }
+
+       if (Input.GetKey(KeyCode.E))
+        {
+            LoadScene();
+        }
+    }
+
+    public void LoadScene()
+    { 
+        if (Input.GetKey(KeyCode.E))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        
     }
 }
