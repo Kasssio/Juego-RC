@@ -45,10 +45,28 @@ public class PlayerControl : MonoBehaviour
            rotationSpeed -= 20;
            speed += 20;
        }
+
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+           rotationSpeed -= 30;
+           speed += 30;
+       }
+
+       if (Input.GetKeyUp(KeyCode.Space))
+       {
+           rotationSpeed += 30;
+           speed -= 30;
+       }
        
        if (transform.position.y <= -1) 
        {
            transform.position = new Vector3(-19 , 2 , 33);
+       }
+
+       if (Input.GetKey(KeyCode.R))
+       {
+           transform.position = new Vector3(-19 , 2 , 33);
+           transform.eulerAngles = new Vector3(0 , 0 , 0);
        }
 
        if (Input.GetKey(KeyCode.E))
