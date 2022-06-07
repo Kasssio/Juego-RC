@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerControl : MonoBehaviour
+public class TTCarControl : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed;
@@ -37,25 +37,25 @@ public class PlayerControl : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.LeftShift))
        {
             rotationSpeed += 20;
-            speed -= 20f;
+            speed -= 5f;
        }
 
        if (Input.GetKeyUp(KeyCode.LeftShift))
        {
            rotationSpeed -= 20;
-           speed += 20;
+           speed += 5;
        }
 
        if (Input.GetKeyDown(KeyCode.Space))
        {
            rotationSpeed -= 30;
-           speed += 30;
+           speed += 10;
        }
 
        if (Input.GetKeyUp(KeyCode.Space))
        {
            rotationSpeed += 30;
-           speed -= 30;
+           speed -= 10;
        }
        
        if (transform.position.y <= -1) 
