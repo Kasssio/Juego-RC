@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour
+public class Checkpoints1 : MonoBehaviour
 {
+    public GameObject CheckPoint1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,11 @@ public class Checkpoint : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider collision) {
+        if (collision.gameObject.name == "CheckPoint01") {
+            
+        }
     }
 }
