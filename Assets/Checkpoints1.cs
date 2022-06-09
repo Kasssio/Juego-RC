@@ -5,7 +5,8 @@ using UnityEngine;
 public class Checkpoints1 : MonoBehaviour
 {
     public GameObject CheckPoint1;
-    // Start is called before the first frame update
+    //Objetivo: hacer que cuando el auto haga contacto con todos los checkpoints y pase por el primero se cuente una vuelta
+    //extra: si el auto se cae que respawnee en el ultimo checkpoint por el que pasó
     void Start()
     {
         
