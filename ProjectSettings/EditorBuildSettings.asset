@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1770386c17c055640bce43d82e154bfc
   - enabled: 1
-    path: Assets/Scenes/FreeRoam.unity
+    path: Assets/Scenes/MODO ROTO.unity
     guid: 2057328a50f605c409c5ac41fe6ff7b7
   - enabled: 1
     path: Assets/Scenes/Contrarreloj.unity

@@ -6,22 +6,37 @@ using UnityEngine.SceneManagement;
 public class TTCarControl : MonoBehaviour
 {
     public float speed;
+    float velocidad;
+    float timer;
+    float speedinicio;
     public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        speedinicio = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        velocidad = speedinicio * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.W)){
-            transform.Translate(speed * Time.deltaTime , 0 , 0);
+
+            transform.Translate(velocidad, 0 , 0);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedinicio++;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speedinicio = speed;
         }
 
         if (Input.GetKey(KeyCode.S)){
-            transform.Translate(-speed * Time.deltaTime , 0 , 0);
+            transform.Translate(-velocidad, 0 , 0);
         }
 
         if (Input.GetKey(KeyCode.D))
