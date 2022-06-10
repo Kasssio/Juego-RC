@@ -35,6 +35,8 @@ public class TTCarControl : MonoBehaviour
             speedinicio = speed;
         }
 
+        if ()
+
         if (Input.GetKey(KeyCode.S)){
             transform.Translate(-velocidad, 0 , 0);
         }
