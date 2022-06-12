@@ -5,39 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class TTCarControl : MonoBehaviour
 {
+    public float currentCheckpoint;
     public float speed;
     float velocidad;
     float timer;
     float speedinicio;
+    public float maxSpeed;
     public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        currentCheckpoint = 0;
         speedinicio = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
         velocidad = speedinicio * Time.deltaTime;
 
+
+       #region movimiento
         if (Input.GetKey(KeyCode.W)){
+            transform.Translate(speed * Time.deltaTime , 0 , 0);
 
             transform.Translate(velocidad, 0 , 0);
+
+            if (speed < maxSpeed)
+            {
+                speed += 0.05f;
+            }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.W))
         {
-            speedinicio++;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speedinicio = speed;
+            speed = speedinicio;
         }
 
-        if ()
 
         if (Input.GetKey(KeyCode.S)){
+            transform.Translate(-speed * Time.deltaTime , 0 , 0);
             transform.Translate(-velocidad, 0 , 0);
         }
 
@@ -51,7 +60,10 @@ public class TTCarControl : MonoBehaviour
         transform.eulerAngles -= new Vector3(0 , rotationSpeed * Time.deltaTime , 0);
        }
 
-       if (Input.GetKeyDown(KeyCode.LeftShift))
+       #endregion
+
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
        {
             rotationSpeed += 20;
             speed -= 5f;
@@ -63,17 +75,15 @@ public class TTCarControl : MonoBehaviour
            speed += 5;
        }
 
-       if (Input.GetKeyDown(KeyCode.Space))
-       {
-           rotationSpeed -= 30;
-           speed += 10;
-       }
+      if (Input.GetKey(KeyCode.Space))
+        {
+            maxSpeed += 10f;
+        }
 
-       if (Input.GetKeyUp(KeyCode.Space))
-       {
-           rotationSpeed += 30;
-           speed -= 10;
-       }
+      if (Input.GetKeyUp(KeyCode.Space))
+        {
+            maxSpeed -= 10f;
+        }
        
        if (transform.position.y <= -1) 
        {
@@ -83,13 +93,13 @@ public class TTCarControl : MonoBehaviour
 
        if (Input.GetKey(KeyCode.R))
        {
-           transform.position = new Vector3(-73.2f , 20.5f , 0.1f);
-           transform.eulerAngles = new Vector3(0 , 90 , 0);
-       }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
        if (Input.GetKey(KeyCode.E))
         {
             LoadScene();
+            
         }
     }
 
@@ -98,7 +108,9 @@ public class TTCarControl : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             SceneManager.LoadScene("Menu");
+            
         }
         
     }
+
 }

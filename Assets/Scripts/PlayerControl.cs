@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+    public float currentCheckpoint;
     public float speed;
     public float rotationSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentCheckpoint = 0;
     }
 
     // Update is called once per frame
@@ -84,4 +85,6 @@ public class PlayerControl : MonoBehaviour
         }
         
     }
+
+    
 }
