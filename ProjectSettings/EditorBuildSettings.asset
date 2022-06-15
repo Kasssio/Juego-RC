@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tiempo.unity
     guid: b8cca8df5791ac240b73754f660f9839
+  - enabled: 1
+    path: Assets/Scenes/saludos.unity
+    guid: c038bd383d3d0894294a3f3500377dad
   m_configObjects: {}
