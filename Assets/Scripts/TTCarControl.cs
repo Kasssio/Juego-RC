@@ -29,9 +29,9 @@ public class TTCarControl : MonoBehaviour
 
        #region movimiento
         if (Input.GetKey(KeyCode.W)){
-            transform.Translate(speed * Time.deltaTime , 0 , 0);
+            transform.Translate(0 , 0 , -speed * Time.deltaTime);
 
-            transform.Translate(velocidad, 0 , 0);
+            transform.Translate(0, 0 , -velocidad);
 
             if (speed < maxSpeed)
             {
@@ -46,8 +46,8 @@ public class TTCarControl : MonoBehaviour
 
 
         if (Input.GetKey(KeyCode.S)){
-            transform.Translate(-speed * Time.deltaTime , 0 , 0);
-            transform.Translate(-velocidad, 0 , 0);
+            transform.Translate(0 , 0 , speed * Time.deltaTime);
+            transform.Translate(0, 0 , velocidad);
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -84,12 +84,6 @@ public class TTCarControl : MonoBehaviour
         {
             maxSpeed -= 10f;
         }
-       
-       if (transform.position.y <= -1) 
-       {
-           transform.position = new Vector3(-73.2f , 20.5f , 0.1f);
-           transform.eulerAngles = new Vector3(0 , 90 , 0);
-       }
 
        if (Input.GetKey(KeyCode.R))
        {

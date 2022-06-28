@@ -21,6 +21,7 @@ public class ResetPosition : MonoBehaviour
         if (piso.gameObject.name == "piso")
         {
             transform.position = new Vector3(-73.76f, 18, -0.24f);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
     }
 }
